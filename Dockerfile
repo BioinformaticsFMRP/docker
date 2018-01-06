@@ -14,6 +14,7 @@ RUN apt-get -y install \
         libxml2-dev \
         libssl-dev \
         openssl \
+        libmariadb-client-lgpl-dev \
         gdebi-core \
         libgsl* \
         libgs-dev 
@@ -25,7 +26,6 @@ ADD shiny-server /etc/services.d/shiny-server
 ADD shiny-server.conf /etc/shiny-server/shiny-server.conf
 RUN rm -rf /srv/shiny-server/*
 RUN R -f /tmp/install_dep.R
-RUN apt-get install  -y libmariadb-client-lgpl-dev
 RUN R -f /tmp/install_dep.R
 RUN R -f /tmp/install.R
 RUN cp -R /usr/local/lib/R/site-library/TCGAbiolinksGUI/app /srv/shiny-server/

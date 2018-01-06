@@ -1,6 +1,7 @@
 source("https://bioconductor.org/biocLite.R")
 update.packages(ask=F)
 install.packages("devtools")
+install.packages("RMySQL")
 biocLite("XML")
 biocLite("minfi")
 #biocLite("Simon-Coetzee/StatePaintR", suppressUpdates = TRUE, dependencies = TRUE)
