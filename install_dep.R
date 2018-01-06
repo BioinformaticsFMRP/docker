@@ -1,6 +1,8 @@
 source("https://bioconductor.org/biocLite.R")
 update.packages(ask=F)
 install.packages("devtools")
+biocLite("XML")
+biocLite("minfi")
 #biocLite("Simon-Coetzee/StatePaintR", suppressUpdates = TRUE, dependencies = TRUE)
 #biocLite("Simon-Coetzee/funciVar", suppressUpdates = TRUE, dependencies = TRUE)
 #biocLite("Simon-Coetzee/motifbreakR", suppressUpdates = TRUE, dependencies = TRUE)

@@ -11,6 +11,7 @@ RUN apt-get update && apt-get install -y apt-transport-https ; exit 0
 
 RUN apt-get -y install \
         curl \
+        libxml2-dev \
         libssl-dev \
         openssl \
         gdebi-core \
