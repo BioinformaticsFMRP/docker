@@ -1,4 +1,4 @@
-FROM rocker/hadleyverse:latest
+FROM rocker/tidyverse
 
 MAINTAINER "Tiago Chedraoui Silva" tiagochst@usp.br
 
