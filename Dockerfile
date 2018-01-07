@@ -1,8 +1,7 @@
-FROM rocker/tidyverse
+FROM rocker/tidyverse:latest
 
 MAINTAINER "Tiago Chedraoui Silva" tiagochst@usp.br
 
-ADD install.R /tmp/
 ADD install_dep.R /tmp/
 RUN echo "R_MAX_NUM_DLLS=150" >> /usr/local/lib/R/etc/Renviron
 
@@ -24,7 +23,6 @@ ADD shiny-server /etc/services.d/shiny-server
 ADD shiny-server.conf /etc/shiny-server/shiny-server.conf
 RUN rm -rf /srv/shiny-server/*
 RUN R -f /tmp/install_dep.R
-RUN R -f /tmp/install.R
 RUN cp -R /usr/local/lib/R/site-library/TCGAbiolinksGUI/app /srv/shiny-server/
 VOLUME /home/rstudio
 EXPOSE 3838
