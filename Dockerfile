@@ -27,6 +27,6 @@ RUN gdebi -n shiny-server-1.5.5.872-amd64.deb
 ADD shiny-server /etc/services.d/shiny-server
 ADD shiny-server.conf /etc/shiny-server/shiny-server.conf
 RUN rm -rf /srv/shiny-server/*
-RUN cp -R /usr/local/lib/R/site-library/TCGAbiolinksGUI/app /srv/shiny-server/
+RUN cp -R /usr/local/lib/R/site-library/TCGAbiolinksGUI/app/* /srv/shiny-server/
 VOLUME /home/rstudio
 EXPOSE 3838
