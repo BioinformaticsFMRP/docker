@@ -1,7 +1,3 @@
 source("https://bioconductor.org/biocLite.R")
-biocLite("minfi")
-devtools::install_github("tiagochst/ELMER.data", dependencies = TRUE)
-devtools::install_github("tiagochst/ELMER", dependencies = TRUE)
-devtools::install_github("BioinformaticsFMRP/TCGAbiolinks", dependencies = TRUE)
-devtools::install_github("BioinformaticsFMRP/TCGAbiolinks.data",ref = "R_3.4", dependencies = TRUE)
+devtools::install_github("BioinformaticsFMRP/TCGAbiolinksGUI.data",ref = "R_3.4", dependencies = TRUE)
 devtools::install_github("BioinformaticsFMRP/TCGAbiolinksGUI", dependencies = TRUE)

@@ -17,6 +17,11 @@ RUN apt-get update -qq && apt-get -y --no-install-recommends install \
         libgs-dev \
         imagemagick \
         ghostscript 
+RUN R -e "source('https://bioconductor.org/biocLite.R')" \
+    &&  installGithub.r Bioconductor-mirror/minfi \
+        BioinformaticsFMRP/TCGAbiolinks \                        
+        tiagochst/ELMER.data \
+        tiagochst/ELMER
 RUN wget https://download3.rstudio.org/ubuntu-12.04/x86_64/shiny-server-1.5.5.872-amd64.deb 
 RUN gdebi -n shiny-server-1.5.5.872-amd64.deb
 ADD shiny-server /etc/services.d/shiny-server
