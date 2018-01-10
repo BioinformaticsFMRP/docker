@@ -16,7 +16,7 @@ RUN apt-get update -qq && apt-get -y --no-install-recommends install \
         imagemagick \
         ghostscript 
 RUN R -e "source('https://bioconductor.org/biocLite.R')" \
-    &&  installGithub.r Bioconductor-mirror/minfi \
+    &&  installGithub.r kasperdanielhansen/minfi \
         BioinformaticsFMRP/TCGAbiolinks \                        
         tiagochst/ELMER.data \
         tiagochst/ELMER \
