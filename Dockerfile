@@ -1,12 +1,3 @@
-FROM rocker/tidyverse:latest
-
-MAINTAINER "Tiago Chedraoui Silva" tiagochst@usp.br
-
-RUN echo "R_MAX_NUM_DLLS=150" >> /usr/local/lib/R/etc/Renviron
-
-RUN apt-get update -qq && apt-get -y --no-install-recommends install \
-        curl \
-        libxml2-dev \
         libssl-dev \
         openssl \
         libmariadb-client-lgpl-dev \
@@ -14,15 +5,15 @@ RUN apt-get update -qq && apt-get -y --no-install-recommends install \
         libgsl* \
         libgs-dev \
         imagemagick \
-        ghostscript 
-RUN R -e "source('https://bioconductor.org/biocLite.R')" \
+        ghostscript
+RUN R -e "install.packages('remotes')" \
     &&  installGithub.r zwdzwd/sesameData \
-        zwdzwd/sesame \
-        BioinformaticsFMRP/TCGAbiolinks \                        
-        tiagochst/ELMER.data \
-        tiagochst/ELMER \
-        BioinformaticsFMRP/TCGAbiolinksGUI.data \
-        BioinformaticsFMRP/TCGAbiolinksGUI
+                        zwdzwd/sesame
+RUN R -e "install.packages('BiocManager')" \
+    &&  installGithub.r  tiagochst/ELMER.data \
+                         tiagochst/ELMER \
+                         BioinformaticsFMRP/TCGAbiolinksGUI.data \
+                         BioinformaticsFMRP/TCGAbiolinksGUI
 RUN wget https://download3.rstudio.org/ubuntu-14.04/x86_64/shiny-server-1.5.9.923-amd64.deb
 RUN gdebi -n shiny-server-1.5.9.923-amd64.deb
 ADD shiny-server /etc/services.d/shiny-server
