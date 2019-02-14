@@ -16,11 +16,12 @@ RUN apt-get update -qq && apt-get -y --no-install-recommends install \
         imagemagick \
         ghostscript 
 RUN R -e "source('https://bioconductor.org/biocLite.R')" \
-    &&  installGithub.r kasperdanielhansen/minfi \
+    &&  installGithub.r zwdzwd/sesameData \
+        zwdzwd/sesame \
         BioinformaticsFMRP/TCGAbiolinks \                        
         tiagochst/ELMER.data \
         tiagochst/ELMER \
-        BioinformaticsFMRP/TCGAbiolinksGUI.data@R_3.4 \
+        BioinformaticsFMRP/TCGAbiolinksGUI.data \
         BioinformaticsFMRP/TCGAbiolinksGUI
 RUN wget https://download3.rstudio.org/ubuntu-12.04/x86_64/shiny-server-1.5.5.872-amd64.deb 
 RUN gdebi -n shiny-server-1.5.5.872-amd64.deb
