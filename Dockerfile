@@ -12,6 +12,7 @@ RUN apt-get update -qq && apt-get -y --no-install-recommends install \
         libmariadb-client-lgpl-dev \
         gdebi-core \
         libgsl* \
+        libudunits2-dev \
         libgs-dev \
         imagemagick \
         ghostscript
