@@ -32,3 +32,4 @@ RUN rm -rf /srv/shiny-server/*
 RUN cp -R /usr/local/lib/R/site-library/TCGAbiolinksGUI/app/* /srv/shiny-server/
 VOLUME /home/rstudio
 EXPOSE 3838
+ENV DISABLE_AUTH=true
