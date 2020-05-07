@@ -1,4 +1,4 @@
-FROM bioconductor/release_core2
+FROM bioconductor/bioconductor_docker:RELEASE_3_11
 
 MAINTAINER "Tiago Chedraoui Silva" tiagochst@usp.br
 
