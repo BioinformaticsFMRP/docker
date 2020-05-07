@@ -9,7 +9,6 @@ RUN apt-get update -qq && apt-get -y --no-install-recommends install \
         libxml2-dev \
         libssl-dev \
         openssl \
-        libmariadb-client-lgpl-dev \
         gdebi-core \
         libgsl* \
         libudunits2-dev \
