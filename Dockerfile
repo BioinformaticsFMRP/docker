@@ -14,7 +14,8 @@ RUN apt-get update -qq && apt-get -y --no-install-recommends install \
         libudunits2-dev \
         libgs-dev \
         imagemagick \
-        ghostscript
+        ghostscript \
+        qpdf
 RUN R -e "install.packages('remotes')" \
     &&  installGithub.r zwdzwd/sesameData \
                         zwdzwd/sesame
