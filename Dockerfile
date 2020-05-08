@@ -16,6 +16,7 @@ RUN apt-get update -qq && apt-get -y --no-install-recommends install \
         imagemagick \
         ghostscript \
         qpdf
+RUN ln -s usr/lib/R/modules/lapack.so usr/lib/R/modules/libRlapack.so        
 RUN R -e "install.packages('remotes')" \
     &&  installGithub.r zwdzwd/sesameData \
                         zwdzwd/sesame
