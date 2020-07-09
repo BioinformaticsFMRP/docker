@@ -6,6 +6,9 @@ RUN apt-get update -qq && apt-get -y --no-install-recommends install \
         curl \
         libxml2-dev \
         libssl-dev \
+        libcurl4-openssl-dev \
+        libssh2-1-dev \
+        zlib1g-dev \
         openssl \
         gdebi-core \
         libgsl* \
@@ -14,14 +17,20 @@ RUN apt-get update -qq && apt-get -y --no-install-recommends install \
         imagemagick \
         ghostscript \
         qpdf
-RUN R -e "install.packages('remotes')" \
-    &&  installGithub.r zwdzwd/sesameData \
-                        zwdzwd/sesame
+        
+run R -e "install.packages(c('devtools', 'testthat', 'roxygen2','remotes'))"
+        
+RUN installGithub.r zwdzwd/sesameData \
+                    zwdzwd/sesame
+                    
 RUN installGithub.r BioinformaticsFMRP/TCGAbiolinks
+
 RUN installGithub.r tiagochst/ELMER.data \
-                          tiagochst/ELMER
-RUN installGithub.r  BioinformaticsFMRP/TCGAbiolinksGUI.data \
-                           BioinformaticsFMRP/TCGAbiolinksGUI
+                    tiagochst/ELMER
+
+RUN installGithub.r BioinformaticsFMRP/TCGAbiolinksGUI.data \
+                    BioinformaticsFMRP/TCGAbiolinksGUI
+
 RUN wget https://download3.rstudio.org/ubuntu-14.04/x86_64/shiny-server-1.5.14.948-amd64.deb
 RUN gdebi -n shiny-server-1.5.14.948-amd64.deb
 ADD shiny-server /etc/services.d/shiny-server
